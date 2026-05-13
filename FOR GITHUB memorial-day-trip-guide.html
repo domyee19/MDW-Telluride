@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2a1f17">
+<title>Memorial Day Field Guide · Denver to Telluride</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,400..700&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f0e6d2;
+    --paper-deep: #e8dcc0;
+    --paper-shadow: #d8c9a8;
+    --ink: #1f1812;
+    --ink-soft: #3d2f24;
+    --ink-faded: #6b5a48;
+    --forest: #3d4f2a;
+    --forest-deep: #2a3a1a;
+    --ochre: #b35a1f;
+    --ochre-deep: #8a4218;
+    --sky: #4a6f8c;
+    --rust: #8a3a1f;
+    --line: rgba(31, 24, 18, 0.15);
+    --line-strong: rgba(31, 24, 18, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    font-family: 'Geist', -apple-system, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 88px; /* room for bottom nav */
+  }
+
+  /* Topographic line texture overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(127deg, transparent 0, transparent 23px, rgba(31, 24, 18, 0.02) 23px, rgba(31, 24, 18, 0.02) 24px),
+      repeating-linear-gradient(217deg, transparent 0, transparent 31px, rgba(31, 24, 18, 0.015) 31px, rgba(31, 24, 18, 0.015) 32px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  main, header, nav, footer, .page-hero { position: relative; z-index: 1; }
+
+  /* PAGE SYSTEM */
+  .page { display: none; }
+  .page.active { display: block; animation: fadeIn 0.3s ease-out; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* HERO IMAGES */
+  .page-hero {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    margin-bottom: 0;
+    background: var(--ink);
+  }
+
+  @media (min-width: 640px) {
+    .page-hero { height: 360px; }
+  }
+
+  .page-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: sepia(0.15) saturate(0.9) contrast(1.05);
+  }
+
+  .page-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(31, 24, 18, 0.2) 0%, rgba(31, 24, 18, 0.55) 80%, var(--paper) 100%);
+  }
+
+  .hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    z-index: 2;
+    color: var(--paper);
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(240, 230, 210, 0.8);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(2rem, 7vw, 3.25rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    font-variation-settings: 'opsz' 144, 'SOFT' 50;
+    font-style: italic;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero-subtitle {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    color: rgba(240, 230, 210, 0.85);
+    font-variation-settings: 'opsz' 36;
+  }
+
+  /* MAIN CONTENT */
+  main { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 2rem; }
+
+  section { margin-bottom: 2.5rem; }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: clamp(1.5rem, 4.5vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    font-variation-settings: 'opsz' 80;
+  }
+
+  .section-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ochre-deep);
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin: 1.75rem 0 0.5rem;
+    font-variation-settings: 'opsz' 36;
+  }
+
+  h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ochre-deep);
+    margin: 1.25rem 0 0.4rem;
+    font-weight: 600;
+  }
+
+  p { margin-bottom: 0.85rem; font-size: 0.95rem; }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  a {
+    color: var(--ochre-deep);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--ochre);
+  }
+  a:hover { color: var(--rust); }
+
+  /* INLINE PHOTO */
+  .inline-photo {
+    margin: 1.5rem 0;
+    border: 1px solid var(--ink);
+    overflow: hidden;
+    position: relative;
+    background: var(--paper-deep);
+  }
+
+  .inline-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(0.1) saturate(0.95);
+  }
+
+  .photo-caption {
+    padding: 0.5rem 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--ink-faded);
+    background: var(--paper-deep);
+    border-top: 1px solid var(--line-strong);
+  }
+
+  /* TIMELINE */
+  .timeline {
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+    position: relative;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 4.5rem;
+    top: 0.5rem;
+    bottom: 0.5rem;
+    width: 1px;
+    background: var(--line-strong);
+  }
+  .timeline li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    align-items: baseline;
+    position: relative;
+  }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: 4.35rem;
+    top: 1rem;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--ochre);
+    border: 2px solid var(--paper);
+  }
+  .timeline-time {
+    flex-shrink: 0;
+    width: 4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ochre-deep);
+    font-weight: 600;
+    text-align: right;
+  }
+  .timeline-content {
+    flex: 1;
+    padding-left: 0.75rem;
+    font-size: 0.9rem;
+  }
+  .timeline-content strong { display: block; margin-bottom: 0.15rem; }
+
+  /* OVERVIEW TABLE */
+  .overview-table {
+    background: var(--paper-deep);
+    border: 1px solid var(--ink);
+    margin: 1.5rem 0;
+    overflow-x: auto;
+  }
+
+  .overview-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+
+  .overview-table th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.75rem 0.75rem;
+    text-align: left;
+    font-weight: 500;
+  }
+
+  .overview-table td {
+    padding: 0.75rem 0.75rem;
+    border-top: 1px solid var(--line-strong);
+    vertical-align: top;
+  }
+
+  .overview-table td:first-child {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ochre-deep);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* SITE / LOCATION CARDS */
+  .site-card {
+    background: var(--paper-deep);
+    border: 1px solid var(--ink);
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    position: relative;
+  }
+
+  .site-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid var(--ochre);
+    border-left: 2px solid var(--ochre);
+  }
+  .site-card::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid var(--ochre);
+    border-right: 2px solid var(--ochre);
+  }
+
+  .site-card h3 { margin-top: 0; }
+
+  /* PIN BLOCK */
+  .pin-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0;
+    padding: 0.85rem 1rem;
+    background: var(--paper);
+    border-left: 3px solid var(--forest);
+  }
+
+  .pin-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faded);
+  }
+
+  .pin-coords {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.92rem;
+    color: var(--ink);
+    font-weight: 500;
+    word-break: break-all;
+  }
+
+  .pin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    padding: 0.55rem 0.9rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+  .pin-btn:hover { background: var(--ochre-deep); color: var(--paper); }
+  .pin-btn svg { width: 12px; height: 12px; }
+
+  .pin-btn-group {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    margin-top: 0.4rem;
+  }
+  .pin-btn-group .pin-btn { margin-top: 0; }
+
+  /* DETAIL ROW */
+  .detail-row {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.5rem 1rem;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+  }
+  .detail-row dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-faded);
+    padding-top: 0.18rem;
+  }
+  .detail-row dd { color: var(--ink-soft); }
+
+  /* BULLET LISTS */
+  ul.bullet {
+    list-style: none;
+    margin: 0.85rem 0;
+    padding: 0;
+  }
+  ul.bullet li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+    font-size: 0.93rem;
+  }
+  ul.bullet li::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--ochre);
+    font-size: 0.7rem;
+  }
+
+  /* CALLOUTS */
+  .callout {
+    background: var(--paper);
+    border-left: 4px solid var(--rust);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 0.9rem;
+  }
+
+  .callout.warn { border-left-color: var(--rust); }
+  .callout.info { border-left-color: var(--sky); }
+  .callout.good { border-left-color: var(--forest); }
+
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+  }
+
+  .callout.warn .callout-label { color: var(--rust); }
+  .callout.info .callout-label { color: var(--sky); }
+  .callout.good .callout-label { color: var(--forest); }
+
+  /* CHECKLIST */
+  .checklist {
+    list-style: none;
+    margin: 1.25rem 0;
+    padding: 0;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px dashed var(--line);
+    font-size: 0.92rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .checklist li:last-child { border-bottom: none; }
+
+  .checklist input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid var(--ink);
+    background: var(--paper);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+  }
+
+  .checklist input[type="checkbox"]:checked { background: var(--ink); }
+
+  .checklist input[type="checkbox"]:checked::after {
+    content: '✓';
+    position: absolute;
+    color: var(--paper);
+    font-size: 13px;
+    font-weight: 700;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+  }
+
+  .checklist li:has(input:checked) { opacity: 0.45; }
+  .checklist li:has(input:checked) label { text-decoration: line-through; }
+
+  .checklist label { cursor: pointer; flex: 1; }
+
+  /* RESOURCE LINKS */
+  .resources {
+    display: grid;
+    gap: 0.5rem;
+    margin: 1rem 0;
+  }
+  .resource {
+    display: block;
+    padding: 0.85rem 1rem;
+    background: var(--paper-deep);
+    border: 1px solid var(--line-strong);
+    text-decoration: none;
+    color: var(--ink);
+    transition: all 0.15s;
+  }
+  .resource:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .resource:hover .resource-url { color: var(--paper-deep); }
+  .resource-title {
+    font-weight: 600;
+    font-size: 0.88rem;
+    margin-bottom: 0.15rem;
+  }
+  .resource-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--ink-faded);
+    word-break: break-all;
+  }
+
+  /* DIVIDER */
+  .divider {
+    text-align: center;
+    margin: 1.75rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--ink-faded);
+  }
+  .divider::before, .divider::after {
+    content: '———';
+    margin: 0 0.75rem;
+    color: var(--line-strong);
+  }
+
+  /* DAY BADGE */
+  .day-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 0.3rem 0.6rem;
+    background: var(--forest);
+    color: var(--paper);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* BOTTOM TAB BAR */
+  .tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--ink);
+    border-top: 1px solid var(--ochre-deep);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    z-index: 100;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .tab-bar button {
+    background: none;
+    border: none;
+    color: rgba(240, 230, 210, 0.5);
+    padding: 0.7rem 0.25rem 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    border-top: 2px solid transparent;
+    font-weight: 500;
+  }
+
+  .tab-bar button.active {
+    color: var(--paper);
+    border-top-color: var(--ochre);
+  }
+
+  .tab-bar button:hover { color: var(--paper-deep); }
+
+  .tab-icon {
+    font-family: 'Fraunces', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1;
+    font-variation-settings: 'opsz' 36;
+  }
+
+  /* TOP STATUS BAR */
+  .top-bar {
+    position: sticky;
+    top: 0;
+    background: rgba(232, 220, 192, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line-strong);
+    padding: 0.6rem 1rem;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faded);
+  }
+
+  .top-bar-title { color: var(--ink); font-weight: 600; }
+
+  /* META ROW (overview) */
+  .meta-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+  }
+  @media (min-width: 480px) {
+    .meta-row { grid-template-columns: repeat(4, 1fr); }
+  }
+  .meta-item {
+    padding: 0.75rem;
+    background: var(--paper-deep);
+    border: 1px solid var(--line-strong);
+  }
+  .meta-item-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faded);
+    margin-bottom: 0.25rem;
+  }
+  .meta-item-value {
+    font-family: 'Fraunces', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* LINK PILL */
+  .link-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.75rem;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    margin: 0.25rem 0.35rem 0.25rem 0;
+    transition: all 0.15s;
+  }
+  .link-pill:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  /* Print styles */
+  @media print {
+    body::before { display: none; }
+    .tab-bar, .top-bar { display: none; }
+    body { padding-bottom: 0; }
+    .page { display: block !important; }
+    .page-hero { height: 200px; page-break-after: avoid; }
+    section { page-break-inside: avoid; }
+  }
+
+  /* Larger screens */
+  @media (min-width: 640px) {
+    main { padding: 2.5rem 2rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <span>Memorial Day · 2026</span>
+  <span class="top-bar-title" id="current-page-title">Trip Overview</span>
+  <span>v1.0</span>
+</div>
+
+<!-- ============ OVERVIEW ============ -->
+<section class="page active" data-page="overview">
+  <div class="page-hero">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Peaks_over_Telluride_(5868861382).jpg?width=1200" alt="San Juan Mountains over Telluride" onerror="this.style.display='none'">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Field Guide · Vol. I</div>
+      <h1 class="hero-title">Denver to Telluride</h1>
+      <div class="hero-subtitle">A Memorial Day weekend in the San Juans · May 22–25, 2026</div>
+    </div>
+  </div>
+
+  <main>
+    <div class="meta-row">
+      <div class="meta-item">
+        <div class="meta-item-label">Duration</div>
+        <div class="meta-item-value">4 Days</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-item-label">Camping</div>
+        <div class="meta-item-value">3 Nights</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-item-label">Round Trip</div>
+        <div class="meta-item-value">~700 mi</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-item-label">Festival</div>
+        <div class="meta-item-value">Mountainfilm</div>
+      </div>
+    </div>
+
+    <h2>The Plan</h2>
+    <div class="section-meta">At a glance</div>
+
+    <div class="overview-table">
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Drive</th><th>What</th><th>Night</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fri 5/22</td><td>~4 hrs</td><td>Denver → Gunnison, set up camp</td><td>Hartman Rocks</td></tr>
+          <tr><td>Sat 5/23</td><td>~4 hrs</td><td>Black Canyon → Ridgway → Telluride evening</td><td>Hastings View</td></tr>
+          <tr><td>Sun 5/24</td><td>local</td><td>Morning hike + Mountainfilm Festival</td><td>Hastings View</td></tr>
+          <tr><td>Mon 5/25</td><td>~6 hrs</td><td>Drive home via Monarch Pass</td><td>Home</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>The Story</h3>
+    <p>Four days through Colorado's Western Slope. One night of dispersed camping under high-desert stars, two nights on a private ranch with mountain views. Black Canyon of the Gunnison in the morning, Telluride and a film festival in the afternoon, and a high-mountain hike in between.</p>
+
+    <div class="callout info">
+      <div class="callout-label">⚡ Mountainfilm Festival</div>
+      Runs in Telluride May 21–25. Town will be busy and lodging tight, but Sunday afternoon screenings are the highlight of your weekend.
+    </div>
+
+    <h3>Quick reference</h3>
+    <div class="detail-row">
+      <dt>Friday camp</dt><dd>Hartman Rocks (BLM, free, FCFS) · Gunnison</dd>
+      <dt>Sat/Sun camp</dt><dd>The Hastings View · Hartwork Ranch (Hipcamp, reserved)</dd>
+      <dt>Main activity</dt><dd>Black Canyon · Warner Point Trail (Sat AM)</dd>
+      <dt>Festival</dt><dd>Mountainfilm · Sunday afternoon programs</dd>
+      <dt>Hike</dt><dd>Jud Wiebe Trail · Sunday morning</dd>
+    </div>
+
+    <div class="callout good">
+      <div class="callout-label">✓ Use the tabs below</div>
+      Tap any day at the bottom to jump to its full plan, pins, photos, and links. Settings persist on this device — your packing checklist will save as you check things off.
+    </div>
+  </main>
+</section>
+
+<!-- ============ FRIDAY ============ -->
+<section class="page" data-page="friday">
+  <div class="page-hero" style="background: linear-gradient(135deg, #8a6f4a 0%, #5a4a35 100%);">
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.55;">
+      <defs>
+        <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#d4a973"/>
+          <stop offset="60%" stop-color="#a67844"/>
+          <stop offset="100%" stop-color="#5a3a20"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="280" fill="url(#skyGrad)"/>
+      <circle cx="320" cy="60" r="22" fill="#f4d27a" opacity="0.85"/>
+      <!-- Distant ridges -->
+      <path d="M0 180 L60 150 L120 165 L180 135 L240 155 L300 130 L400 145 L400 280 L0 280 Z" fill="#3a2a1c" opacity="0.7"/>
+      <path d="M0 210 L80 185 L160 200 L240 175 L320 195 L400 180 L400 280 L0 280 Z" fill="#2a1f15" opacity="0.8"/>
+      <!-- Foreground rocks -->
+      <path d="M0 240 L40 225 L80 235 L140 215 L200 230 L260 220 L320 235 L400 220 L400 280 L0 280 Z" fill="#1f1812"/>
+      <!-- Sagebrush hints -->
+      <circle cx="50" cy="240" r="4" fill="#3d4f2a" opacity="0.7"/>
+      <circle cx="180" cy="232" r="3" fill="#3d4f2a" opacity="0.7"/>
+      <circle cx="280" cy="238" r="3.5" fill="#3d4f2a" opacity="0.7"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Day One · Friday May 22</div>
+      <h1 class="hero-title">Hartman Rocks</h1>
+      <div class="hero-subtitle">Denver → Gunnison · BLM dispersed · 7,700 ft</div>
+    </div>
+  </div>
+
+  <main>
+    <h2>The Drive Out</h2>
+    <div class="section-meta">~4 hours · 200 mi · US-285 → US-50 over Monarch Pass</div>
+
+    <p>The opening stretch — flexible departure once everyone's off work. Drive is straightforward and scenic: US-285 south through South Park, US-50 west over Monarch Pass (11,312 ft), drop into the Gunnison Valley. Hartman is 3 mi south of town. Aim to arrive at camp before dark (sunset ~8:25pm).</p>
+
+    <ul class="timeline">
+      <li>
+        <span class="timeline-time">Depart</span>
+        <span class="timeline-content"><strong>Leave Denver</strong>Top off gas, grab car snacks · ~4 hr total</span>
+      </li>
+      <li>
+        <span class="timeline-time">+2 hr</span>
+        <span class="timeline-content"><strong>Salida</strong>Gas + bathroom break; last real services before Monarch Pass</span>
+      </li>
+      <li>
+        <span class="timeline-time">+3 hr</span>
+        <span class="timeline-content"><strong>Monarch Pass summit</strong>Stop for a photo if you want · 11,312 ft</span>
+      </li>
+      <li>
+        <span class="timeline-time">+3:45</span>
+        <span class="timeline-content"><strong>Gunnison</strong>Fill water at Jorgensen Park, optional dinner pickup</span>
+      </li>
+      <li>
+        <span class="timeline-time">+4 hr</span>
+        <span class="timeline-content"><strong>Arrive Hartman Rocks</strong>Find a site, set up before dark</span>
+      </li>
+    </ul>
+
+    <div class="callout info">
+      <div class="callout-label">⏱ Departure planning</div>
+      Aim to leave Denver by ~4 PM to reach camp in daylight. Later than 5 PM means setting up tents in the dark — bring headlamps to the top of the gear pile and consider eating dinner before you leave.
+    </div>
+
+    <div class="inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Original_Monarch_Pass,_Sawatch_Range,_Gunnison_and_Chaffee_Counties,_Colorado,_USA_01.jpg?width=900" alt="Monarch Pass in the Sawatch Range" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">Monarch Pass · Sawatch Range · 11,312 ft · Wikimedia Commons</div>
+    </div>
+
+    <h2 style="margin-top:2rem;">Hartman Rocks Base Area</h2>
+    <div class="section-meta">BLM · 14,000 acres · 50 dispersed sites · Free · FCFS</div>
+
+    <p>High-desert BLM land south of Gunnison. Sagebrush and slickrock at 7,700 ft, much warmer at night than the alpine campgrounds. Network of dispersed sites along well-maintained county and BLM roads. Year-round, no reservations, no fees.</p>
+
+    <div class="inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Hartman_Rocks_Recreation_Area_sign.JPG?width=900" alt="Hartman Rocks Recreation Area" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">Hartman Rocks Recreation Area · BLM Colorado / Wikimedia Commons</div>
+    </div>
+
+    <div class="site-card">
+      <h3>Recommended Entrance</h3>
+
+      <div class="pin-block">
+        <span class="pin-label">GPS Pin · Base Area</span>
+        <span class="pin-coords">38.4989, -106.9483</span>
+        <div class="pin-btn-group">
+          <a class="pin-btn" href="https://maps.apple.com/?ll=38.4989,-106.9483&q=Hartman%20Rocks%20Base%20Area" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apple Maps
+          </a>
+          <a class="pin-btn" href="https://www.google.com/maps?q=38.4989,-106.9483" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps
+          </a>
+        </div>
+      </div>
+
+      <dl class="detail-row">
+        <dt>Route</dt><dd>From Gunnison, 3 mi south on County Rd 38 (Gold Basin Rd). Base Area parking on the west side.</dd>
+        <dt>Facilities</dt><dd>Vault toilets at Base Area and at the BLM 3500/3505 intersection. No water on site. No fees.</dd>
+        <dt>Strategy</dt><dd>Sites cluster around BLM Roads 3505 and 3500. Easy access on the county-maintained dirt road.</dd>
+      </dl>
+
+      <h4>Backup Entrance · CR-32C Back Side</h4>
+      <p style="font-size:0.85rem;">If Base Area is full: <strong>38.5003, -106.9926</strong> · 8 spaced-out sites, rougher access road. <a href="https://maps.apple.com/?ll=38.5003,-106.9926&q=Hartman%20Rocks%20Back%20Entrance" target="_blank" rel="noopener">Apple Maps</a> · <a href="https://www.google.com/maps?q=38.5003,-106.9926" target="_blank" rel="noopener">Google Maps</a></p>
+    </div>
+
+    <h3>Useful nearby pins</h3>
+    <div class="detail-row">
+      <dt>Water refill</dt><dd>Jorgensen Park spigot, Gunnison · <strong>38.5426, -106.9217</strong><br><a href="https://maps.apple.com/?ll=38.5426,-106.9217&q=Jorgensen%20Park%20Water" target="_blank" rel="noopener">Apple Maps</a> · <a href="https://www.google.com/maps?q=38.5426,-106.9217" target="_blank" rel="noopener">Google Maps</a></dd>
+      <dt>Dinner option</dt><dd>Garlic Mike's (Italian) or Mario's Pizza in Gunnison</dd>
+      <dt>BLM office</dt><dd><a href="tel:9706424940">(970) 642-4940</a> · road & fire status</dd>
+    </div>
+
+    <h4>Resources</h4>
+    <div class="resources">
+      <a class="resource" href="https://www.blm.gov/visit/hartman-rocks-recreation-area" target="_blank" rel="noopener">
+        <div class="resource-title">Hartman Rocks · BLM Official</div>
+        <div class="resource-url">blm.gov/visit/hartman-rocks-recreation-area</div>
+      </a>
+    </div>
+  </main>
+</section>
+
+<!-- ============ SATURDAY ============ -->
+<section class="page" data-page="saturday">
+  <div class="page-hero">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Painted_Wall,_Black_Canyon_Of_The_Gunnison.jpg?width=1200" alt="Painted Wall, Black Canyon of the Gunnison" onerror="this.parentElement.style.background='linear-gradient(135deg,#2a3a4a 0%,#1a2530 100%)'">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Day Two · Saturday May 23</div>
+      <h1 class="hero-title">The Big Day</h1>
+      <div class="hero-subtitle">Black Canyon · Ridgway · Hastings View · Telluride</div>
+    </div>
+  </div>
+
+  <main>
+    <h2>Saturday timeline</h2>
+    <div class="section-meta">Black Canyon → Ridgway → Camp → Telluride evening</div>
+
+    <ul class="timeline">
+      <li>
+        <span class="timeline-time">8:30 AM</span>
+        <span class="timeline-content"><strong>Leave Hartman</strong>Coffee, pack, hit the road · ~1.25 hrs to Black Canyon</span>
+      </li>
+      <li>
+        <span class="timeline-time">10:00</span>
+        <span class="timeline-content"><strong>Arrive Black Canyon South Rim</strong>$30 entry · Visitor center, then overlooks</span>
+      </li>
+      <li>
+        <span class="timeline-time">11:30</span>
+        <span class="timeline-content"><strong>Warner Point Nature Trail</strong>1.5 mi RT · The main event</span>
+      </li>
+      <li>
+        <span class="timeline-time">1:30 PM</span>
+        <span class="timeline-content"><strong>Leave park, head to Ridgway</strong>~1 hr 15 min through Montrose</span>
+      </li>
+      <li>
+        <span class="timeline-time">3:00</span>
+        <span class="timeline-content"><strong>Ridgway · late lunch + stretch</strong>Walk Sherman Street, eat</span>
+      </li>
+      <li>
+        <span class="timeline-time">4:15</span>
+        <span class="timeline-content"><strong>Drive to Hastings View</strong>~25 min via CO-62</span>
+      </li>
+      <li>
+        <span class="timeline-time">4:45</span>
+        <span class="timeline-content"><strong>Set up camp at the ranch</strong>Drop tent, gear, cooler</span>
+      </li>
+      <li>
+        <span class="timeline-time">5:45</span>
+        <span class="timeline-content"><strong>Drive to Telluride</strong>~25 min, mostly paved CO-145</span>
+      </li>
+      <li>
+        <span class="timeline-time">6:30</span>
+        <span class="timeline-content"><strong>Telluride evening</strong>Gondola at sunset, walk Colorado Ave, dinner</span>
+      </li>
+      <li>
+        <span class="timeline-time">10:00</span>
+        <span class="timeline-content"><strong>Back to camp</strong>Easy drive, stars over Hayden's Peak</span>
+      </li>
+    </ul>
+
+    <div class="divider">Stop 1</div>
+
+    <h2>Black Canyon of the Gunnison</h2>
+    <div class="section-meta">South Rim · National Park · $30/vehicle</div>
+
+    <p>One of the most underrated national parks. The Painted Wall is the tallest sheer cliff in Colorado at 2,250 ft — taller than the Empire State Building. Plan for 3 hours: visitor center, drive the overlooks, do Warner Point as the main hike.</p>
+
+    <div class="inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Black_Canyon_Painted_Wall.JPG?width=900" alt="Painted Wall at Black Canyon" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">Painted Wall · 2,250 ft sheer cliff · Photo: Jesse Varner / Wikimedia Commons</div>
+    </div>
+
+    <div class="site-card">
+      <h3>South Rim Visitor Center</h3>
+
+      <div class="pin-block">
+        <span class="pin-label">GPS Pin</span>
+        <span class="pin-coords">38.5524, -107.6818</span>
+        <div class="pin-btn-group">
+          <a class="pin-btn" href="https://maps.apple.com/?ll=38.5524,-107.6818&q=Black%20Canyon%20South%20Rim%20Visitor%20Center" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apple Maps
+          </a>
+          <a class="pin-btn" href="https://www.google.com/maps?q=38.5524,-107.6818" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps
+          </a>
+        </div>
+      </div>
+
+      <dl class="detail-row">
+        <dt>Address</dt><dd>9800 Highway 347, Montrose, CO 81230</dd>
+        <dt>Entry</dt><dd>$30/vehicle (7-day) · Interagency pass works</dd>
+        <dt>Phone</dt><dd><a href="tel:9706412337">(970) 641-2337</a></dd>
+      </dl>
+    </div>
+
+    <h3>Warner Point Nature Trail</h3>
+    <p>1.5 mi RT · moderate · ~1 hr · ~8,300 ft elevation. Trailhead at High Point, end of South Rim Road. Pinyon-juniper forest, shady benches, opens to panoramic views: San Juan Range to the south, West Elk Mountains to the north, deepest part of Black Canyon below. Pick up the trail guide at the trailhead or visitor center.</p>
+
+    <h3>Overlooks to hit on the drive</h3>
+    <ul class="bullet">
+      <li><strong>Tomichi Point</strong> · first one, easy access</li>
+      <li><strong>Pulpit Rock</strong> · short out-and-back, dramatic perched view</li>
+      <li><strong>Cedar Point</strong> · 0.2 mi walk to Painted Wall views</li>
+      <li><strong>Dragon Point</strong> · alternate Painted Wall angle</li>
+      <li><strong>Sunset View</strong> · western end of the road</li>
+    </ul>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ 2026 Closure</div>
+      South Rim Campground closed due to fire damage from the 2025 South Rim Fire. Day-use only.
+    </div>
+
+    <h4>Resources</h4>
+    <div class="resources">
+      <a class="resource" href="https://www.nps.gov/blca/index.htm" target="_blank" rel="noopener">
+        <div class="resource-title">Black Canyon NPS</div>
+        <div class="resource-url">nps.gov/blca</div>
+      </a>
+      <a class="resource" href="https://www.nps.gov/blca/planyourvisit/conditions.htm" target="_blank" rel="noopener">
+        <div class="resource-title">Current Conditions & Closures</div>
+        <div class="resource-url">nps.gov/blca · check before going</div>
+      </a>
+    </div>
+
+    <div class="divider">Stop 2</div>
+
+    <h2>Ridgway</h2>
+    <div class="section-meta">Late lunch · ~1 hour · paved access</div>
+
+    <p>Small Western town at the foot of the Sneffels Range. Sits at a crossroads between Telluride, Ouray, and Montrose. Quick lunch stop, walk Sherman Street, then push to the ranch.</p>
+
+    <div class="pin-block">
+      <span class="pin-label">Downtown Ridgway</span>
+      <span class="pin-coords">38.1531, -107.7556</span>
+      <div class="pin-btn-group">
+        <a class="pin-btn" href="https://maps.apple.com/?ll=38.1531,-107.7556&q=Ridgway%20Colorado" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Apple Maps
+        </a>
+        <a class="pin-btn" href="https://www.google.com/maps?q=38.1531,-107.7556" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Google Maps
+        </a>
+      </div>
+    </div>
+
+    <h3>Lunch picks</h3>
+    <ul class="bullet">
+      <li><strong>Kate's Place</strong> · classic, hearty breakfast/lunch · locals' favorite</li>
+      <li><strong>Colorado Boy Pub & Brewery</strong> · pizza + craft beer</li>
+      <li><strong>Provisions</strong> · upscale lunch + market for camp supplies</li>
+      <li><strong>Cimarron Coffee & Books</strong> · espresso + a stretch</li>
+    </ul>
+
+    <h3>Quick stretch</h3>
+    <ul class="bullet">
+      <li>Walk Sherman Street · 15-20 min loop, galleries, True Grit murals</li>
+      <li>Ridgway Town Park · river access, easy stroll</li>
+    </ul>
+
+    <div class="divider">Stop 3</div>
+
+    <h2>The Hastings View</h2>
+    <div class="section-meta">Hartwork Ranch · Hipcamp · ~8,500 ft · reserved</div>
+
+    <div class="inline-photo">
+      <img src="https://hipcamp-res.cloudinary.com/image/upload/v1755401230/dev-campground-photos/akr2xtmp2q7yqvk7jwkm.jpg" alt="The Hastings View at Hartwork Ranch" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">The Hastings View · Hartwork Ranch · Hipcamp listing</div>
+    </div>
+
+    <p>40-acre ranch on Hastings Mesa with views of Hayden's Peak and Alder Canyon. May is wildflower peak — iris and clematis through the meadows. Lower elevation than the alpine alternatives, so warmer nights. Site is the highest on the property, separate from others, with the best peak views.</p>
+
+    <div class="site-card">
+      <h3>Site Details</h3>
+
+      <div class="pin-block">
+        <span class="pin-label">Approximate Pin · Hastings Mesa</span>
+        <span class="pin-coords">38.0525, -107.9385</span>
+        <span style="font-size:0.75rem;color:var(--ink-faded);">Exact address provided after booking</span>
+        <div class="pin-btn-group">
+          <a class="pin-btn" href="https://maps.apple.com/?ll=38.0525,-107.9385&q=Hastings%20Mesa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apple Maps
+          </a>
+          <a class="pin-btn" href="https://www.google.com/maps?q=38.0525,-107.9385" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps
+          </a>
+        </div>
+      </div>
+
+      <dl class="detail-row">
+        <dt>Route in</dt><dd>From Ridgway · CO-62 W · County Rd 56V south onto Hastings Mesa · follow Hipcamp directions to ranch</dd>
+        <dt>Drive time</dt><dd>~25 min to Telluride, ~30 min to Ridgway, ~30 min to Norwood</dd>
+        <dt>4x4?</dt><dd>Not required in May (winter only) · standard AWD/SUV fine on the access road</dd>
+        <dt>Camping</dt><dd>Flat tent spots in meadow or shaded by scrub oak</dd>
+        <dt>Fire</dt><dd>Fire ring on site, but expect ban — bring a propane fire pit if you want a fire</dd>
+        <dt>Sleep</dt><dd>Cold at night, even at lower elevation. Plan for 35–45°F</dd>
+      </dl>
+
+      <h4>Hipcamp Listing</h4>
+      <div class="resources">
+        <a class="resource" href="https://www.hipcamp.com/en-US/land/colorado-hartwork-ranch-r57hddrm/sites/1917708" target="_blank" rel="noopener">
+          <div class="resource-title">The Hastings View · Hartwork Ranch</div>
+          <div class="resource-url">hipcamp.com · your booking</div>
+        </a>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Quiet hours + property respect</div>
+      This is a working ranch on private land. Stay on the designated site, respect quiet hours, don't wander onto adjacent property. Beaver ponds and Alder Creek are on the property and worth a daytime walk.
+    </div>
+
+    <div class="divider">Stop 4</div>
+
+    <h2>Telluride evening</h2>
+    <div class="section-meta">Saturday night in town</div>
+
+    <div class="inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Box_Canyon_Telluride,_Colorado_2023.jpg?width=900" alt="Telluride box canyon" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">Telluride box canyon · Wikimedia Commons</div>
+    </div>
+
+    <div class="pin-block">
+      <span class="pin-label">Downtown Telluride · Gondola</span>
+      <span class="pin-coords">37.9381, -107.8068</span>
+      <div class="pin-btn-group">
+        <a class="pin-btn" href="https://maps.apple.com/?ll=37.9381,-107.8068&q=Telluride%20Gondola" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Apple Maps
+        </a>
+        <a class="pin-btn" href="https://www.google.com/maps?q=37.9381,-107.8068" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Google Maps
+        </a>
+      </div>
+    </div>
+
+    <h3>Evening plan</h3>
+    <ul class="bullet">
+      <li><strong>Park at the gondola lot</strong> (free) or any of the free downtown lots</li>
+      <li><strong>Ride the gondola</strong> to Mountain Village for sunset · 8 min each way, free, runs til midnight (1am Fri/Sat during Mountainfilm)</li>
+      <li><strong>Walk Colorado Avenue</strong> · historic Victorian storefronts, browse shops</li>
+      <li><strong>Dinner</strong> · pick from below</li>
+    </ul>
+
+    <h3>Dinner picks</h3>
+    <ul class="bullet">
+      <li><strong>Brown Dog Pizza</strong> · Detroit-style, casual, family-friendly</li>
+      <li><strong>La Cocina de Luz</strong> · fresh Mexican, organic, lively</li>
+      <li><strong>Cosmopolitan</strong> · upscale, great cocktail list</li>
+      <li><strong>221 South Oak</strong> · seasonal American, splurge-worthy</li>
+      <li><strong>The Butcher & Baker</strong> · also open for dinner (cafe vibe)</li>
+    </ul>
+
+    <h4>Resources</h4>
+    <div class="resources">
+      <a class="resource" href="https://www.telluride.com/" target="_blank" rel="noopener">
+        <div class="resource-title">Visit Telluride</div>
+        <div class="resource-url">telluride.com</div>
+      </a>
+      <a class="resource" href="https://www.townofmountainvillage.com/play/gondola/" target="_blank" rel="noopener">
+        <div class="resource-title">Gondola Hours & Status</div>
+        <div class="resource-url">townofmountainvillage.com/play/gondola</div>
+      </a>
+    </div>
+  </main>
+</section>
+
+<!-- ============ SUNDAY ============ -->
+<section class="page" data-page="sunday">
+  <div class="page-hero">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Colorado_Avenue_at_Telluride_Film_Festival_2018_2.jpg?width=1200" alt="Colorado Avenue at Telluride Film Festival" onerror="this.parentElement.style.background='linear-gradient(135deg,#3d4f2a 0%,#2a3a1a 100%)'">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Day Three · Sunday May 24</div>
+      <h1 class="hero-title">Hike & Festival</h1>
+      <div class="hero-subtitle">Jud Wiebe Trail · Mountainfilm afternoon</div>
+    </div>
+  </div>
+
+  <main>
+    <h2>Sunday Rhythm</h2>
+    <div class="section-meta">Morning hike → lunch → festival → dinner</div>
+
+    <ul class="timeline">
+      <li>
+        <span class="timeline-time">7:00 AM</span>
+        <span class="timeline-content"><strong>Wake at camp</strong>Coffee, breakfast, slow morning under Hayden's Peak</span>
+      </li>
+      <li>
+        <span class="timeline-time">8:30</span>
+        <span class="timeline-content"><strong>Drive to Telluride</strong>~25 min on CO-145</span>
+      </li>
+      <li>
+        <span class="timeline-time">9:00</span>
+        <span class="timeline-content"><strong>Jud Wiebe Trail</strong>3 mi loop · ~2 hrs · moderate</span>
+      </li>
+      <li>
+        <span class="timeline-time">11:00</span>
+        <span class="timeline-content"><strong>Back in town</strong>Clean up at car, change clothes</span>
+      </li>
+      <li>
+        <span class="timeline-time">12:00 PM</span>
+        <span class="timeline-content"><strong>Lunch</strong>Butcher & Baker or grab-and-go</span>
+      </li>
+      <li>
+        <span class="timeline-time">1:30</span>
+        <span class="timeline-content"><strong>Mountainfilm program #1</strong>$20 single ticket · 90 min</span>
+      </li>
+      <li>
+        <span class="timeline-time">3:30</span>
+        <span class="timeline-content"><strong>Town wander + coffee</strong>Browse galleries, get espresso, recharge</span>
+      </li>
+      <li>
+        <span class="timeline-time">5:00</span>
+        <span class="timeline-content"><strong>Optional · second program OR Elks Park free shorts</strong></span>
+      </li>
+      <li>
+        <span class="timeline-time">7:00</span>
+        <span class="timeline-content"><strong>Dinner</strong>The nice meal of the trip</span>
+      </li>
+      <li>
+        <span class="timeline-time">9:30</span>
+        <span class="timeline-content"><strong>Back to camp</strong></span>
+      </li>
+    </ul>
+
+    <div class="divider">Morning</div>
+
+    <h2>Jud Wiebe Trail</h2>
+    <div class="section-meta">3 mi loop · moderate · 1,200 ft gain · ~2 hrs</div>
+
+    <div class="inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Waterfall_in_Telluride_(Unsplash).jpg?width=900" alt="Waterfall near Telluride" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">Bridal Veil Falls · 365 ft · tallest free-falling waterfall in Colorado</div>
+    </div>
+
+    <p>The classic in-town hike. Loops up the north side of the box canyon from Aspen Street trailhead, climbs to a saddle with a spectacular overlook of Telluride and the surrounding peaks, and descends back. No backtracking. Perfect for the morning before festival time.</p>
+
+    <div class="site-card">
+      <h3>Trail details</h3>
+
+      <div class="pin-block">
+        <span class="pin-label">Trailhead · Aspen Street</span>
+        <span class="pin-coords">37.9402, -107.8156</span>
+        <div class="pin-btn-group">
+          <a class="pin-btn" href="https://maps.apple.com/?ll=37.9402,-107.8156&q=Jud%20Wiebe%20Trailhead" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apple Maps
+          </a>
+          <a class="pin-btn" href="https://www.google.com/maps?q=37.9402,-107.8156" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps
+          </a>
+        </div>
+      </div>
+
+      <dl class="detail-row">
+        <dt>Distance</dt><dd>3.2 mi loop</dd>
+        <dt>Elevation gain</dt><dd>~1,200 ft</dd>
+        <dt>Difficulty</dt><dd>Moderate · steep early, mellows out at the top</dd>
+        <dt>Time</dt><dd>1.5–2.5 hrs</dd>
+        <dt>Highlight</dt><dd>Overlook of Telluride box canyon and Mount Wilson</dd>
+        <dt>Direction</dt><dd>Go counterclockwise (up Cornet Creek side, down Liberty Bell side)</dd>
+      </dl>
+    </div>
+
+    <h3>Alternates if you want different</h3>
+    <ul class="bullet">
+      <li><strong>Bear Creek Falls</strong> · 5 mi RT · more committing, eats festival time</li>
+      <li><strong>Bridal Veil Falls</strong> · drive partway, hike 3.6 mi RT to the waterfall</li>
+      <li><strong>Property hike at the ranch</strong> · beaver ponds and Alder Creek · skip Telluride morning entirely</li>
+    </ul>
+
+    <div class="divider">Afternoon</div>
+
+    <h2>Mountainfilm Festival</h2>
+    <div class="section-meta">Sunday programming · single tickets at venues</div>
+
+    <div class="inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Colorado_Avenue_at_Telluride_Film_Festival_2017_2.jpg?width=900" alt="Colorado Avenue during the Telluride Film Festival" loading="lazy" onerror="this.parentElement.style.display='none'">
+      <div class="photo-caption">Colorado Avenue during festival week · Wikimedia Commons</div>
+    </div>
+
+    <p>Annual documentary and adventure film festival, runs Memorial Day weekend in Telluride. Sunday is the festival's third day — full programming, strong audience energy, filmmakers around for Q&As. You don't need a full pass; just buy single program tickets at the door.</p>
+
+    <h3>How it works</h3>
+    <ul class="bullet">
+      <li><strong>Single tickets</strong> · $20 each at venue · credit card only (no cash)</li>
+      <li><strong>Programs run ~90 min</strong> · usually 4-6 short films grouped thematically</li>
+      <li><strong>Pick by topic</strong>, not time slot — themes range from climbing to climate to social justice</li>
+      <li><strong>Standby line for non-passholders</strong> · show up 30+ min early to get in</li>
+      <li><strong>Free outdoor shorts</strong> play in Elks Park (downtown) — drop in anytime</li>
+    </ul>
+
+    <h3>Main venues</h3>
+    <div class="detail-row">
+      <dt>Palm Theatre</dt><dd>721 W Colorado Ave · big screen, main programs</dd>
+      <dt>Sheridan Opera House</dt><dd>110 N Oak St · historic, intimate</dd>
+      <dt>Nugget Theatre</dt><dd>207 W Colorado Ave · classic downtown theater</dd>
+      <dt>Elks Park</dt><dd>downtown · free outdoor screenings</dd>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-label">Check the program</div>
+      Schedule typically locks 1-2 days before. Use the official site Saturday night to plan your Sunday picks.
+    </div>
+
+    <h4>Resources</h4>
+    <div class="resources">
+      <a class="resource" href="https://www.mountainfilm.org/festival" target="_blank" rel="noopener">
+        <div class="resource-title">Mountainfilm Festival</div>
+        <div class="resource-url">mountainfilm.org/festival</div>
+      </a>
+    </div>
+
+    <div class="divider">Evening</div>
+
+    <h2>Sunday dinner</h2>
+    <p>The nice meal of the trip. Make a reservation Saturday night for Sunday evening — town will be busy with festival folks.</p>
+
+    <ul class="bullet">
+      <li><strong>La Marmotte</strong> · French bistro, longstanding favorite</li>
+      <li><strong>221 South Oak</strong> · seasonal American, refined</li>
+      <li><strong>The National</strong> · steaks and seafood, energetic room</li>
+      <li><strong>Cosmopolitan</strong> · cocktail program is excellent</li>
+      <li><strong>Allred's</strong> · top of the gondola, eat with mountain views (reservations critical)</li>
+    </ul>
+  </main>
+</section>
+
+<!-- ============ MONDAY ============ -->
+<section class="page" data-page="monday">
+  <div class="page-hero" style="background: linear-gradient(135deg, #5a7894 0%, #2a3a4a 100%);">
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.5;">
+      <defs>
+        <linearGradient id="mondaySky" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#7a98b4"/>
+          <stop offset="100%" stop-color="#3a5274"/>
+        </linearGradient>
+      </defs>
+      <rect width="400" height="280" fill="url(#mondaySky)"/>
+      <!-- Distant peaks -->
+      <path d="M0 140 L40 100 L80 130 L120 80 L160 110 L200 70 L240 105 L280 85 L320 115 L360 90 L400 120 L400 280 L0 280 Z" fill="#3a4a5a" opacity="0.8"/>
+      <path d="M0 180 L60 160 L120 170 L180 145 L240 165 L300 150 L360 170 L400 155 L400 280 L0 280 Z" fill="#2a3a4a" opacity="0.9"/>
+      <!-- Road -->
+      <path d="M180 280 L195 210 L210 280 Z" fill="#1f1812" opacity="0.7"/>
+      <line x1="200" y1="280" x2="200" y2="220" stroke="#f0e6d2" stroke-width="1" opacity="0.5" stroke-dasharray="4,4"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Day Four · Monday May 25</div>
+      <h1 class="hero-title">Drive Home</h1>
+      <div class="hero-subtitle">Hastings View → Denver · ~6 hrs · via Monarch Pass</div>
+    </div>
+  </div>
+
+  <main>
+    <h2>The Route Home</h2>
+    <div class="section-meta">~6 hrs · ~325 mi</div>
+
+    <p>Reverse of the Friday drive, mostly. Hastings View → down to CO-62 → east to Ridgway → US-550 N to Montrose → US-50 E over Monarch Pass → US-285 N → Denver.</p>
+
+    <ul class="timeline">
+      <li>
+        <span class="timeline-time">8:00 AM</span>
+        <span class="timeline-content"><strong>Pack up camp</strong>Last coffee with the view</span>
+      </li>
+      <li>
+        <span class="timeline-time">9:30</span>
+        <span class="timeline-content"><strong>Through Ridgway</strong>Stop for coffee + gas if needed</span>
+      </li>
+      <li>
+        <span class="timeline-time">10:30</span>
+        <span class="timeline-content"><strong>Montrose</strong>Fuel and snacks before the long stretch</span>
+      </li>
+      <li>
+        <span class="timeline-time">12:30 PM</span>
+        <span class="timeline-content"><strong>Gunnison</strong>Lunch break · Mario's Pizza, Tributary Coffee</span>
+      </li>
+      <li>
+        <span class="timeline-time">2:00</span>
+        <span class="timeline-content"><strong>Monarch Pass</strong>11,312 ft · last big climb</span>
+      </li>
+      <li>
+        <span class="timeline-time">2:45</span>
+        <span class="timeline-content"><strong>Salida</strong>Lunch or coffee · walk F Street · last real stop before Denver</span>
+      </li>
+      <li>
+        <span class="timeline-time">5:30 PM</span>
+        <span class="timeline-content"><strong>Home in Denver</strong></span>
+      </li>
+    </ul>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Memorial Day traffic</div>
+      Get on the road by 9am. US-285 and especially I-70 east of Denver back up hard on Monday afternoon. The earlier the better.
+    </div>
+
+    <h2>Suggested mid-drive stop</h2>
+
+    <div class="site-card">
+      <h3>Salida</h3>
+
+      <div class="pin-block">
+        <span class="pin-label">Downtown Salida · F Street</span>
+        <span class="pin-coords">38.5347, -105.9989</span>
+        <div class="pin-btn-group">
+          <a class="pin-btn" href="https://maps.apple.com/?ll=38.5347,-105.9989&q=Salida%20Colorado" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Apple Maps
+          </a>
+          <a class="pin-btn" href="https://www.google.com/maps?q=38.5347,-105.9989" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Google Maps
+          </a>
+        </div>
+      </div>
+
+      <p>About halfway home after Monarch Pass. Walkable historic downtown along the Arkansas River. Coffee, lunch, stretch tired legs before the final 2.5-hour push through South Park to Denver.</p>
+
+      <h4>Picks</h4>
+      <ul class="bullet">
+        <li><strong>Currents</strong> · seasonal American, riverside</li>
+        <li><strong>Amica's Pizza</strong> · wood-fired, casual</li>
+        <li><strong>Howl Mercantile & Coffee</strong> · espresso + provisions</li>
+        <li><strong>Riverside Park</strong> · easy stretch by the water</li>
+      </ul>
+    </div>
+
+    <h2>Useful pins on the route</h2>
+    <div class="detail-row">
+      <dt>Gas · Montrose</dt><dd>Multiple options on US-50</dd>
+      <dt>Coffee · Gunnison</dt><dd>Tributary Coffee Roasters</dd>
+      <dt>Pre-Monarch fuel</dt><dd>Last gas before pass — fill in Gunnison</dd>
+      <dt>Salida</dt><dd>Last decent break before Denver</dd>
+    </div>
+  </main>
+</section>
+
+<!-- ============ REFERENCE ============ -->
+<section class="page" data-page="reference">
+  <div class="page-hero" style="background: linear-gradient(135deg, #3d4f2a 0%, #1f1812 100%);">
+    <svg viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%;opacity:0.3;">
+      <defs>
+        <pattern id="topoLines" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+          <path d="M 0 30 Q 15 20, 30 30 T 60 30" stroke="#f0e6d2" stroke-width="0.5" fill="none"/>
+          <path d="M 0 15 Q 15 5, 30 15 T 60 15" stroke="#f0e6d2" stroke-width="0.5" fill="none"/>
+          <path d="M 0 45 Q 15 35, 30 45 T 60 45" stroke="#f0e6d2" stroke-width="0.5" fill="none"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="280" fill="url(#topoLines)"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Reference</div>
+      <h1 class="hero-title">Field Notes</h1>
+      <div class="hero-subtitle">Packing · Fire · Resources · Emergency</div>
+    </div>
+  </div>
+
+  <main>
+    <h2>Pre-trip checklist</h2>
+    <div class="section-meta">Tap to check · Saved on this device</div>
+
+    <ul class="checklist">
+      <li><input type="checkbox" id="c1"><label for="c1">Verify fire restrictions on GMUG NF and BLM sites</label></li>
+      <li><input type="checkbox" id="c2"><label for="c2">Download offline Google Maps for full route</label></li>
+      <li><input type="checkbox" id="c3"><label for="c3">Fill propane bottles / canisters</label></li>
+      <li><input type="checkbox" id="c4"><label for="c4">Confirm Hipcamp booking confirmation + host directions</label></li>
+      <li><input type="checkbox" id="c5"><label for="c5">Check weather forecast Wednesday and Friday morning</label></li>
+      <li><input type="checkbox" id="c6"><label for="c6">Save this guide offline on phone</label></li>
+      <li><input type="checkbox" id="c7"><label for="c7">Charge headlamps + swap fresh batteries</label></li>
+      <li><input type="checkbox" id="c8"><label for="c8">Test sleeping bag rating (35–45°F expected lows)</label></li>
+      <li><input type="checkbox" id="c9"><label for="c9">First aid kit + altitude meds (ibuprofen)</label></li>
+      <li><input type="checkbox" id="c10"><label for="c10">Make Sunday Telluride dinner reservation</label></li>
+      <li><input type="checkbox" id="c11"><label for="c11">Share itinerary with someone at home</label></li>
+    </ul>
+
+    <h2>Fire restrictions</h2>
+    <div class="section-meta">Current status · as of May 12, 2026</div>
+
+    <div class="callout good">
+      <div class="callout-label">✓ Currently No Restrictions</div>
+      All three jurisdictions clear right now — campfires permitted in existing rings.
+    </div>
+
+    <div class="detail-row">
+      <dt>Hartman Rocks</dt><dd>No restrictions (BLM Gunnison)</dd>
+      <dt>Hastings Mesa</dt><dd>Property has fire ring, but host noted bans are common — bring propane fire pit</dd>
+      <dt>San Miguel County</dt><dd>No restrictions (as of mid-April 2026)</dd>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-label">⚠ Verify Before You Leave</div>
+      Last year went no-restriction → Stage 1 by July 3 → Stage 2 by August. A hot, dry stretch could trigger Stage 1.
+    </div>
+
+    <h4>Check 24-48 hrs before</h4>
+    <div class="resources">
+      <a class="resource" href="https://westslopefireinfo.com/" target="_blank" rel="noopener">
+        <div class="resource-title">West Slope Fire Info</div>
+        <div class="resource-url">westslopefireinfo.com · best aggregator</div>
+      </a>
+      <a class="resource" href="tel:9708746602">
+        <div class="resource-title">GMUG Fire Info Line</div>
+        <div class="resource-url">(970) 874-6602 · pre-recorded</div>
+      </a>
+      <a class="resource" href="https://www.blm.gov/programs/public-safety-and-fire/fire-and-aviation/regional-information/colorado/southwest-district" target="_blank" rel="noopener">
+        <div class="resource-title">BLM Southwest District</div>
+        <div class="resource-url">blm.gov · fire & aviation · CO southwest</div>
+      </a>
+    </div>
+
+    <h2>Packing</h2>
+    <div class="section-meta">3 nights camping · variable weather</div>
+
+    <h4>Shelter & Sleep</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p1"><label for="p1">Tent + footprint + stakes</label></li>
+      <li><input type="checkbox" id="p2"><label for="p2">20°F sleeping bag</label></li>
+      <li><input type="checkbox" id="p3"><label for="p3">Insulated sleeping pad (R-value 4+)</label></li>
+      <li><input type="checkbox" id="p4"><label for="p4">Pillow</label></li>
+    </ul>
+
+    <h4>Cooking</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p5"><label for="p5">Propane stove + 2 fuel canisters</label></li>
+      <li><input type="checkbox" id="p6"><label for="p6">Propane fire pit (for ranch site if ban applies)</label></li>
+      <li><input type="checkbox" id="p7"><label for="p7">Lighter + matches</label></li>
+      <li><input type="checkbox" id="p8"><label for="p8">Pot, pan, mug, utensils</label></li>
+      <li><input type="checkbox" id="p9"><label for="p9">Dish soap, towel, scrub</label></li>
+      <li><input type="checkbox" id="p10"><label for="p10">Trash bags</label></li>
+    </ul>
+
+    <h4>Water</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p11"><label for="p11">2-3 gallons per person</label></li>
+      <li><input type="checkbox" id="p12"><label for="p12">Refill plan at Jorgensen Park Friday</label></li>
+    </ul>
+
+    <h4>Bathroom & Hygiene</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p13"><label for="p13">WAG bags / trowel + TP</label></li>
+      <li><input type="checkbox" id="p14"><label for="p14">Hand sanitizer</label></li>
+      <li><input type="checkbox" id="p15"><label for="p15">Toothbrush kit</label></li>
+      <li><input type="checkbox" id="p16"><label for="p16">Quick-dry towel</label></li>
+    </ul>
+
+    <h4>Clothes (Layers)</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p17"><label for="p17">Base layer top + bottom</label></li>
+      <li><input type="checkbox" id="p18"><label for="p18">Fleece or puffy mid-layer</label></li>
+      <li><input type="checkbox" id="p19"><label for="p19">Rain shell</label></li>
+      <li><input type="checkbox" id="p20"><label for="p20">Beanie, gloves, warm socks</label></li>
+      <li><input type="checkbox" id="p21"><label for="p21">Hiking pants + shorts</label></li>
+      <li><input type="checkbox" id="p22"><label for="p22">Town clothes for Sunday dinner</label></li>
+      <li><input type="checkbox" id="p23"><label for="p23">Camp shoes / sandals</label></li>
+    </ul>
+
+    <h4>Sun & Altitude</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p24"><label for="p24">Sunscreen (high UV at elevation)</label></li>
+      <li><input type="checkbox" id="p25"><label for="p25">Sunglasses</label></li>
+      <li><input type="checkbox" id="p26"><label for="p26">Chapstick with SPF</label></li>
+      <li><input type="checkbox" id="p27"><label for="p27">Electrolyte mix</label></li>
+    </ul>
+
+    <h4>Tech</h4>
+    <ul class="checklist">
+      <li><input type="checkbox" id="p28"><label for="p28">Headlamp + spare batteries</label></li>
+      <li><input type="checkbox" id="p29"><label for="p29">Phone car charger</label></li>
+      <li><input type="checkbox" id="p30"><label for="p30">Battery pack</label></li>
+      <li><input type="checkbox" id="p31"><label for="p31">Paper map backup</label></li>
+    </ul>
+
+    <h2>Weather & roads</h2>
+    <div class="resources">
+      <a class="resource" href="https://forecast.weather.gov/MapClick.php?lat=38.5458&lon=-106.9253" target="_blank" rel="noopener">
+        <div class="resource-title">Gunnison Forecast (NWS)</div>
+        <div class="resource-url">forecast.weather.gov · Gunnison</div>
+      </a>
+      <a class="resource" href="https://forecast.weather.gov/MapClick.php?lat=37.9375&lon=-107.8123" target="_blank" rel="noopener">
+        <div class="resource-title">Telluride Forecast (NWS)</div>
+        <div class="resource-url">forecast.weather.gov · Telluride</div>
+      </a>
+      <a class="resource" href="https://www.cotrip.org/" target="_blank" rel="noopener">
+        <div class="resource-title">CDOT Road Conditions</div>
+        <div class="resource-url">cotrip.org · live road status</div>
+      </a>
+      <a class="resource" href="https://www.cotrip.org/mountainPasses.htm" target="_blank" rel="noopener">
+        <div class="resource-title">Monarch Pass Conditions</div>
+        <div class="resource-url">cotrip.org · mountain passes</div>
+      </a>
+    </div>
+
+    <h2>Emergency info</h2>
+
+    <h4>Hospitals</h4>
+    <div class="detail-row">
+      <dt>Near Hartman</dt><dd>Gunnison Valley Health · <a href="tel:9706411456">(970) 641-1456</a></dd>
+      <dt>Near Ranch</dt><dd>Telluride Regional Medical Center · <a href="tel:9707283848">(970) 728-3848</a></dd>
+      <dt>Black Canyon</dt><dd>Dial 911 · Visitor center <a href="tel:9706412337">(970) 641-2337</a></dd>
+    </div>
+
+    <h4>Other</h4>
+    <ul class="bullet">
+      <li><strong>Cell service:</strong> Reliable in Gunnison, Montrose, Telluride, Ridgway. Spotty at Hartman back roads. Verizon/AT&T best.</li>
+      <li><strong>Tell someone your itinerary</strong> before leaving — share this guide and check-in plan.</li>
+      <li><strong>Hipcamp host contact</strong> · saved in your booking confirmation email</li>
+    </ul>
+
+    <div class="divider">End</div>
+
+    <p style="text-align:center;font-family:'JetBrains Mono',monospace;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--ink-faded);margin-top:1rem;">
+      Field Guide v1.0 · Compiled May 12, 2026<br>
+      Re-verify fire & weather 48 hrs before departure
+    </p>
+  </main>
+</section>
+
+<!-- ============ BOTTOM TAB BAR ============ -->
+<nav class="tab-bar">
+  <button data-target="overview" class="active">
+    <span class="tab-icon">◆</span>
+    <span>Trip</span>
+  </button>
+  <button data-target="friday">
+    <span class="tab-icon">I</span>
+    <span>Fri</span>
+  </button>
+  <button data-target="saturday">
+    <span class="tab-icon">II</span>
+    <span>Sat</span>
+  </button>
+  <button data-target="sunday">
+    <span class="tab-icon">III</span>
+    <span>Sun</span>
+  </button>
+  <button data-target="monday">
+    <span class="tab-icon">IV</span>
+    <span>Mon</span>
+  </button>
+  <button data-target="reference">
+    <span class="tab-icon">§</span>
+    <span>Info</span>
+  </button>
+</nav>
+
+<script>
+  // Page titles for the top bar
+  const pageTitles = {
+    overview: 'Trip Overview',
+    friday: 'Day 1 · Hartman Rocks',
+    saturday: 'Day 2 · The Big Day',
+    sunday: 'Day 3 · Hike & Festival',
+    monday: 'Day 4 · Drive Home',
+    reference: 'Reference & Packing'
+  };
+
+  // Tab navigation
+  function showPage(target) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-bar button').forEach(b => b.classList.remove('active'));
+    const page = document.querySelector(`[data-page="${target}"]`);
+    const button = document.querySelector(`[data-target="${target}"]`);
+    if (page) {
+      page.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    if (button) button.classList.add('active');
+    document.getElementById('current-page-title').textContent = pageTitles[target] || 'Field Guide';
+    // Save current page
+    try { localStorage.setItem('current-page', target); } catch (e) {}
+  }
+
+  document.querySelectorAll('.tab-bar button').forEach(btn => {
+    btn.addEventListener('click', () => showPage(btn.dataset.target));
+  });
+
+  // Restore last page
+  try {
+    const last = localStorage.getItem('current-page');
+    if (last && pageTitles[last]) showPage(last);
+  } catch (e) {}
+
+  // Persist checklist state
+  document.querySelectorAll('.checklist input[type="checkbox"]').forEach(box => {
+    const key = 'trip-checkbox-' + box.id;
+    try {
+      if (localStorage.getItem(key) === 'true') box.checked = true;
+    } catch (e) {}
+    box.addEventListener('change', () => {
+      try { localStorage.setItem(key, box.checked); } catch (e) {}
+    });
+  });
+</script>
+
+</body>
+</html>
